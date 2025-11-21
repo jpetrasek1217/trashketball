@@ -1,0 +1,13 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://cbgufcvgmevn"]
+
+[ext_resource type="FontFile" uid="uid://sim5p1qxph0l" path="res://assets/fonts/roboto/Roboto-Bold.ttf" id="1_mh2m7"]
+
+[resource]
+line_spacing = 0.0
+font = ExtResource("1_mh2m7")
+font_size = 12
+outline_size = 2
+outline_color = Color(0.09411765, 0.2901961, 0.5764706, 1)
+stacked_outline_count = 2
+stacked_outline_0/size = 3
+stacked_outline_1/color = Color(0.12905706, 0.33716747, 0.59353536, 1)

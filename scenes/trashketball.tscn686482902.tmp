@@ -1,0 +1,30 @@
+[gd_scene load_steps=8 format=3 uid="uid://3i5s37pnwpwc"]
+
+[ext_resource type="Script" uid="uid://86o8ksdfxjeu" path="res://scripts/trashketball.gd" id="1_8y2ll"]
+[ext_resource type="Texture2D" uid="uid://cclusvprgo7hb" path="res://assets/sprites/background.png" id="2_u7m65"]
+[ext_resource type="PackedScene" uid="uid://bgcyrl7dxgl2m" path="res://scenes/trajectory.tscn" id="4_ckejs"]
+[ext_resource type="Script" uid="uid://dg0sr88ltdcnx" path="res://scripts/trajectory.gd" id="5_d7sd6"]
+[ext_resource type="PackedScene" uid="uid://07tcql3jhqr1" path="res://scenes/player.tscn" id="5_j0uwo"]
+[ext_resource type="PackedScene" uid="uid://ca2iiekocx2cj" path="res://scenes/trash_spawner.tscn" id="6_wk6ex"]
+[ext_resource type="Texture2D" uid="uid://cmi6fo8sy3ric" path="res://assets/sprites/court.png" id="7_2lgub"]
+
+[node name="Trashketball" type="Node2D"]
+process_mode = 1
+script = ExtResource("1_8y2ll")
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(160, 91)
+texture = ExtResource("2_u7m65")
+offset = Vector2(0, -1)
+
+[node name="Player" parent="." instance=ExtResource("5_j0uwo")]
+position = Vector2(93, 112)
+
+[node name="trajectory" parent="." instance=ExtResource("4_ckejs")]
+script = ExtResource("5_d7sd6")
+
+[node name="trash_spawner" parent="." instance=ExtResource("6_wk6ex")]
+
+[node name="ground" type="Sprite2D" parent="."]
+position = Vector2(160, 90)
+texture = ExtResource("7_2lgub")

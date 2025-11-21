@@ -1,0 +1,13 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://c2kiwh687xfk2"]
+
+[ext_resource type="FontFile" uid="uid://cr4ado42fd4o0" path="res://assets/fonts/upheaval/upheavtt.ttf" id="1_7suu7"]
+
+[resource]
+line_spacing = 0.0
+font = ExtResource("1_7suu7")
+font_size = 27
+outline_size = 2
+outline_color = Color(0.09411765, 0.2901961, 0.5764706, 1)
+stacked_outline_count = 2
+stacked_outline_0/size = 3
+stacked_outline_1/color = Color(0.12905706, 0.33716747, 0.59353536, 1)

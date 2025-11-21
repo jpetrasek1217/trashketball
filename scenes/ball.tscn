@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://dlaonr7sfib6c"]
+
+[ext_resource type="Texture2D" uid="uid://byh82vp1t1nhu" path="res://assets/sprites/basketball.png" id="1_ijnfp"]
+[ext_resource type="Script" uid="uid://6lfrwanell6q" path="res://scripts/ball.gd" id="1_jre3g"]
+[ext_resource type="AudioStream" uid="uid://bdj26ijlwrbtc" path="res://assets/sounds/throw.mp3" id="3_sg3m3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ijnfp"]
+radius = 3.0
+
+[node name="ball" type="Area2D"]
+z_index = 1
+script = ExtResource("1_jre3g")
+
+[node name="ballSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_ijnfp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ijnfp")
+
+[node name="Throw" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_sg3m3")

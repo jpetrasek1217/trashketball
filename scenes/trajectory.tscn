@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgcyrl7dxgl2m"]
+
+[ext_resource type="Script" uid="uid://dg0sr88ltdcnx" path="res://scripts/trajectory.gd" id="1_0kqgc"]
+[ext_resource type="Texture2D" uid="uid://eivmymnxrmi" path="res://assets/sprites/traj_line_texture.png" id="2_0kqgc"]
+
+[node name="trajectory" type="Node2D"]
+script = ExtResource("1_0kqgc")
+
+[node name="line" type="Line2D" parent="."]
+width = 4.0
+default_color = Color(0, 0, 0, 1)
+texture = ExtResource("2_0kqgc")
+texture_mode = 1
+begin_cap_mode = 1
+end_cap_mode = 1
+sharp_limit = 4.0

@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://bhj7d7ht5ncna"]
+
+[ext_resource type="Script" uid="uid://dun148sf4pyw7" path="res://scripts/trash_can.gd" id="1_v88lc"]
+[ext_resource type="Texture2D" uid="uid://cak34laq7n0t4" path="res://assets/sprites/trashCanFront.png" id="2_s1b4w"]
+[ext_resource type="Texture2D" uid="uid://c4jt04fg4l3rq" path="res://assets/sprites/trashCanBack.png" id="3_yqeak"]
+[ext_resource type="AudioStream" uid="uid://bjacijsmwrsor" path="res://assets/sounds/trash_lid.mp3" id="4_yqeak"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v88lc"]
+radius = 2.0
+height = 6.0
+
+[node name="TrashCan" type="Area2D"]
+script = ExtResource("1_v88lc")
+
+[node name="trashCanFront" type="Sprite2D" parent="."]
+z_index = 1
+texture = ExtResource("2_s1b4w")
+
+[node name="trashCanBack" type="Sprite2D" parent="."]
+texture = ExtResource("3_yqeak")
+
+[node name="in_can_collider" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+shape = SubResource("CapsuleShape2D_v88lc")
+
+[node name="TrashLid" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_yqeak")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

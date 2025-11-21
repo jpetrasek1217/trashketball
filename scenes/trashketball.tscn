@@ -1,0 +1,66 @@
+[gd_scene load_steps=9 format=3 uid="uid://3i5s37pnwpwc"]
+
+[ext_resource type="Script" uid="uid://86o8ksdfxjeu" path="res://scripts/trashketball.gd" id="1_8y2ll"]
+[ext_resource type="Texture2D" uid="uid://cclusvprgo7hb" path="res://assets/sprites/background.png" id="2_u7m65"]
+[ext_resource type="Texture2D" uid="uid://cmi6fo8sy3ric" path="res://assets/sprites/court.png" id="3_1pw10"]
+[ext_resource type="PackedScene" uid="uid://07tcql3jhqr1" path="res://scenes/player.tscn" id="4_cw17f"]
+[ext_resource type="PackedScene" uid="uid://d4kipk0dhwdvk" path="res://scenes/ball_spawner.tscn" id="5_j0uwo"]
+[ext_resource type="PackedScene" uid="uid://bgcyrl7dxgl2m" path="res://scenes/trajectory.tscn" id="6_j0uwo"]
+[ext_resource type="LabelSettings" uid="uid://cbgufcvgmevn" path="res://scenes/timer.tres" id="8_wk6ex"]
+[ext_resource type="PackedScene" uid="uid://1q72dwk2fhwx" path="res://scenes/menu.tscn" id="9_wk6ex"]
+
+[node name="Trashketball" type="Node2D"]
+process_mode = 1
+script = ExtResource("1_8y2ll")
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(160, 90)
+texture = ExtResource("2_u7m65")
+offset = Vector2(0, -1)
+
+[node name="ground" type="Sprite2D" parent="."]
+position = Vector2(160, 90)
+texture = ExtResource("3_1pw10")
+
+[node name="ball_spawner" parent="." instance=ExtResource("5_j0uwo")]
+z_index = 1
+
+[node name="trajectory" parent="." instance=ExtResource("6_j0uwo")]
+
+[node name="Player" parent="." instance=ExtResource("4_cw17f")]
+z_index = 0
+position = Vector2(70, 114)
+
+[node name="score" type="Label" parent="."]
+offset_left = 5.0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 27.0
+label_settings = ExtResource("8_wk6ex")
+
+[node name="Menu" parent="." instance=ExtResource("9_wk6ex")]
+z_index = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="LivesOrTimer" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="soundEffects" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="change_game_active" from="." to="trajectory" method="_on_trashketball_change_game_active"]
+[connection signal="change_game_active" from="." to="Player" method="_on_trashketball_change_game_active"]
+[connection signal="minus_one_life" from="ball_spawner" to="." method="_on_ball_spawner_minus_one_life"]
+[connection signal="throw_ball" from="trajectory" to="ball_spawner" method="_on_trajectory_throw_ball"]
+[connection signal="finished_throw_animation" from="Player" to="trajectory" method="_on_player_finished_throw_animation"]
+[connection signal="play_signal" from="Menu" to="." method="_on_menu_play_signal"]

@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://debrk1r1g1rx2"]
+
+[ext_resource type="Script" uid="uid://bk6p5nc7dm0m7" path="res://scripts/trash_can_front.gd" id="1_8w8vb"]
+[ext_resource type="Texture2D" uid="uid://cak34laq7n0t4" path="res://assets/sprites/trashCanFront.png" id="1_hn26o"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_8w8vb"]
+a = Vector2(-6.00001, -1.99998)
+b = Vector2(-5.49998, 4.00001)
+
+[node name="trashCanFront" type="Area2D"]
+script = ExtResource("1_8w8vb")
+
+[node name="trashCanFront" type="Sprite2D" parent="."]
+z_index = 1
+texture = ExtResource("1_hn26o")
+
+[node name="win_collider" type="CollisionShape2D" parent="."]
+z_index = 1
+position = Vector2(2, 4)
+rotation = 1.5708
+shape = SubResource("SegmentShape2D_8w8vb")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

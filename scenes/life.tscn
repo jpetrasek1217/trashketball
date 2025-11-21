@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0etmhnsnvchb"]
+
+[ext_resource type="Texture2D" uid="uid://dvrshp4o2ninx" path="res://assets/sprites/full_heart.png" id="1_tf86k"]
+
+[node name="life" type="Node2D"]
+
+[node name="lifeSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_tf86k")
